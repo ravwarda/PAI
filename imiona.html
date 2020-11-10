@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprawdzacz płci</title>
+</head>
+<body>
+    <script>
+        let name;
+        do {
+         name = prompt("Podaj polskie, nie zdrobnione, imię");
+        } while (name=="");
+        console.log(name.lastIndexOf("a"));
+        console.log(name.length);
+        if (name.lastIndexOf("a")==(name.length-1)) {
+            alert(name + " to imię kobiece");
+        }
+        else
+        {
+            alert(name + " to imię męskie");
+        }
+    </script>
+</body>
+</html>
