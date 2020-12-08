@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        Podaj:<br>
+        Imię<input type="text" id="imie"><br>
+        Hasło<input type="text" id="haslo"><br>
+        <input type="button" id="przycisk" value="Zatwierdź"><br>
+    </form>
+    <div id="dimie"></div>
+    <div id="dzyczenia"></div>
+    <script>
+        const przycisk = document.querySelector("#przycisk");
+        let imie,haslo,zyczenia = "";
+        const tablica = ["Wszyskiego najlepszego!","Wesołych Świąt!","Pysznego karpia!"];
+        for (let i = 0; i < tablica.length; i++) {
+                    zyczenia += tablica[i] + ", ";
+                }
+        przycisk.addEventListener("click",function() {
+            imie = document.querySelector("#imie").value;
+            haslo = document.querySelector("#haslo").value;
+            if (imie.length < 3 || haslo != 123) {
+                document.querySelector("#dimie").innerText = "Podaj prawidłowe dane logowania";
+            }
+            else {
+                document.querySelector("#dimie").innerText = `Cześć ${imie}`;
+                document.querySelector("#dzyczenia").innerHTML =`Z listy życzeń: ${zyczenia} <br> Wybrałem dla ciebie: ${tablica[Math.floor(Math.random() * (tablica.length))]}`;
+            }
+        });
+    </script>
+</body>
+</html>
