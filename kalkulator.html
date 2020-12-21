@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+</head>
+<body>
+    <form>
+        <input id="num1" type="number"><br>
+        <input id="num2" type="number"><br>
+        <input type="button" value="+">
+        <input type="button" value="-">
+        <input type="button" value="*">
+        <input type="button" value="/">
+        <input type="button" value="%">
+    </form>
+    <div></div>
+    <script>
+         let dzialania = document.querySelectorAll("input[type=button]");
+         let dana1,dana2;
+        for (let i = 0; i < dzialania.length; i++) {
+            dzialania[i].addEventListener("click",function() {
+                dana1 = parseInt(document.querySelector("#num1").value);
+                dana2 = parseInt(document.querySelector("#num2").value);
+                if (isNaN(dana1)||isNaN(dana2)) {
+                    document.querySelector("div").innerText = "Brak danych";
+                }
+                else
+                {
+                    switch (dzialania[i].value) {
+            case "+":
+                document.querySelector("div").innerText = dana1+dana2;
+                break;
+            case "-":
+                document.querySelector("div").innerText = dana1-dana2;
+                break;
+            case "*":
+                document.querySelector("div").innerText = dana1*dana2;
+                break;
+            case "/":
+                if (dana2==0) {
+                    document.querySelector("div").innerText = "Nieprawidłowa operacja";
+                }
+                else
+                {
+                    document.querySelector("div").innerText = dana1/dana2;
+                }
+                break;
+            case "%":
+            if (dana2==0) {
+                    document.querySelector("div").innerText = "Nieprawidłowa operacja";
+                }
+                else
+                {
+                    document.querySelector("div").innerText = dana1%dana2;
+                }
+                break;
+            default:
+            document.querySelector("div").innerText = "Wystąpił niezidentyfikowany błąd błąd";
+            }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
